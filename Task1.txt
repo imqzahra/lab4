@@ -1,0 +1,54 @@
+ARTI 303 - Programming for AI
+Lab 4 - Task 1: Variables and Unification
+Queries, Results, and Explanations
+
+1 ?- house = house.
+true.
+Both sides contain the identical atom, so Prolog can match them successfully.
+
+2 ?- house = abc.
+false.
+The two atoms are not identical, so Prolog cannot make them equal.
+
+3 ?- edge(a,b) = edge(C,b).
+C = a.
+Both terms have the same structure. Since the second argument already matches b, the variable C must take the value a.
+
+4 ?- edge(a,d) = edge(C,B).
+C = a,
+B = d.
+The two edge terms have matching structures, so each variable is matched with its corresponding value: C with a and B with d.
+
+
+5 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.
+Each variable can match the constant in the same position, giving C the value a and B the value d.
+
+
+6 ?- edge(A,f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h).
+The outer edge terms match. A is assigned a, while B is assigned the complete term f(g,h).
+
+
+7 ?- edge(A,A) = edge(b,c).
+false.
+A appears in both argument positions, meaning those positions must have the same value. Since b and c differ, the terms cannot unify.
+
+
+8 ?- edge(A,A) = edge(b,b).
+A = b.
+Both arguments have the same value b, so A can consistently be assigned b in both places.
+
+
+9 ?- A = B, B = f.
+A = B, B = f.
+First A is matched with B, and then B is matched with f. As a result, both variables refer to f.
+
+
+10 ?- A = B, B = f, A = e.
+false.
+A and B are first linked and then assigned f. The final requirement that A be e conflicts with f, so the query fails.
+
+11 ?- 

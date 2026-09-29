@@ -1,0 +1,50 @@
+ARTI 303 - Programming for AI
+Lab 4 - Task 2: Variables in Prolog
+Queries, Results, and Explanations
+
+2 ?- female(X).
+X = sara ;
+X = nora.
+
+Explanation:
+This query lists the people who satisfy the female predicate. Prolog returns Sara and Nora.
+
+
+3 ?- male(_).
+true .
+
+Explanation:
+This query checks for the existence of a male. The underscore is an anonymous variable, and the result is true because the knowledge base contains male facts.
+
+
+4 ?- parent(X,Y), parent(Y,faisal).
+X = ali,
+Y = muhammad .
+
+Explanation:
+This query follows two parent relationships to find Faisal's grandparent. Ali is the parent of Muhammad, who is the parent of Faisal.
+
+
+5 ?- parent(ahmad,X), female(X).
+X = sara ;
+X = nora .
+
+Explanation:
+This query looks for Ahmad's children who also satisfy the female predicate. Prolog identifies Sara and Nora.
+
+
+6 ?- parent(X,ahmad), parent(X,muhammad).
+X = ali.
+
+Explanation:
+This query looks for a person who is a parent of both Ahmad and Muhammad. The result identifies Ali as their shared parent.
+
+
+7 ?- male(khan), parent(P,khan), parent(P,nora).
+P = ahmad.
+
+Explanation:
+This query verifies that Khan is male and that Khan and Nora have the same parent. Prolog identifies Ahmad as their common parent, which supports the brother relationship.
+
+
+8 ?-
